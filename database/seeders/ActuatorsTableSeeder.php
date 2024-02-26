@@ -4,10 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Sensor;
+use App\Models\Actuator;
 use Faker\Factory as Faker;
 
-class SensorsTableSeeder extends Seeder
+class ActuatorsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,9 +16,9 @@ class SensorsTableSeeder extends Seeder
     {
         $faker = Faker::create();
         for($i=0; $i < 10; $i++){
-            Sensor::create([
+            Actuator::create([
                 'name' => $faker->unique()->userName,
-                'type' => $faker->randomElement(['Temp', 'Hum', 'Pres']),
+                'type' => $faker->randomElement(['Rele', 'Motor', 'Valvula']),
                 'value'=> $faker->randomFloat(2, 0 , 100),
                 'date' => $faker->dateTimeThisYear(),
                 'user_id'=> rand(1,10)
